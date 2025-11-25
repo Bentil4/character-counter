@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -5,9 +7,9 @@
 }
 
 body {
-  font-family: "DM Sans", "Times New Roman", Times, serif;
+  font-family: "DM Sans", sans-serif;
   background: url(./assets/images/bg-dark-theme.png);
-  color: white;
+  color: #e4e4ef;
   padding: 40px 20px;
 }
 
@@ -51,9 +53,13 @@ main h1 {
   background: transparent;
   border: none;
   outline: none;
-  color: white;
+  color: #e4e4ef;
   font-size: 1.2em;
   padding: 20px;
+}
+
+textarea::placeholder {
+  color: #e4e4ef;
 }
 
 .wrapper-cards {
@@ -66,6 +72,20 @@ main h1 {
   color: #12131a;
 }
 
+.wrapper-checkbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.checkbox {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
 .check-wrap {
   display: flex;
   flex-direction: row;
@@ -75,12 +95,10 @@ main h1 {
 .card {
   background: #1a1a21;
   border-radius: 10px;
-  /* padding: 0 0 0 10px; */
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
-  /* gap: 10px; */
   flex: 1;
 }
 .card section {
@@ -122,24 +140,9 @@ main h1 {
   font-size: 3em;
 }
 
-.wrapper-checkbox {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 100%;
-  gap: 20px;
-}
-
 .wrapper-cards section {
   padding: 20px;
   text-align: left;
-}
-
-.checkbox {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 10px;
 }
 
 input[type="checkbox"] {
@@ -181,10 +184,26 @@ input[type="checkbox"] {
 .progress-bar::after {
   content: "";
   display: block;
-  width: 60%;
+  width: 40%;
   height: 100%;
   background-color: #d3a0fa;
   border-radius: 5px;
+}
+
+.word-details:nth-child(2) .progress-bar::after {
+  width: 16.08%;
+}
+.word-details:nth-child(3) .progress-bar::after {
+  width: 11.65%;
+}
+.word-details:nth-child(4) .progress-bar::after {
+  width: 11.24%;
+}
+.word-details:nth-child(5) .progress-bar::after {
+  width: 8.84%;
+}
+.word-details:nth-child(6) .progress-bar::after {
+  width: 8.43%;
 }
 
 .btn {
@@ -192,7 +211,7 @@ input[type="checkbox"] {
   color: #e4e4ef;
   font-size: 1rem;
   font-weight: 200;
-  font-family: dm sans, "Times New Roman", Times, serif;
+  font-family: "dm sans", "Times New Roman", Times, serif;
   border: none;
   cursor: pointer;
   outline: none;
@@ -202,39 +221,7 @@ input[type="checkbox"] {
 
 /* Media Queries */
 
-@media (max-width: 768px) {
-  header nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin: auto;
-  }
-  main {
-    width: 100%;
-  }
-
-  .title-one {
-    display: none;
-  }
-
-  .wrapper-cards {
-    flex-direction: row;
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-
-  .card {
-    /* width: 2em; */
-    flex: 1;
-    min-width: 0;
-  }
-
-  .progress-bar {
-    width: 80%;
-  }
-}
-
+/* Mobile View */
 @media (max-width: 480px) {
   header nav {
     display: flex;
@@ -273,6 +260,12 @@ input[type="checkbox"] {
     gap: 10px;
   }
 
+  .wrapper-cards {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
   .wrapper-checkbox p {
     text-align: left;
   }
@@ -282,14 +275,57 @@ input[type="checkbox"] {
   }
 }
 
-@media (min-width: 1024px) {
-  main h1 {
-    font-size: 4em;
-    /* width: 70%; */
+/* Tablet view */
+@media (max-width: 768px) {
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: auto;
+  }
+  main {
+    width: 100%;
+  }
+
+  .title-one {
+    display: none;
+  }
+
+  .wrapper-cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 0;
   }
 
   .progress-bar {
     width: 80%;
+  }
+}
+/* Desktop View */
+@media (min-width: 1024px) {
+  main h1 {
+    font-size: 4em;
+  }
+
+  .progress-bar {
+    width: 80%;
+  }
+
+  .wrapper-cards {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .card {
+    flex: 1;
+    min-width: 0;
   }
 
   .word-wrapper {
