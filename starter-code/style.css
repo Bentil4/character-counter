@@ -114,19 +114,21 @@ textarea::placeholder {
   background-image: url(./assets/images/pattern-character-count.svg);
   width: 150px;
   height: 150px;
+  border-radius: 17px;
 }
 .card.yellow::before {
   content: "";
   background-image: url(./assets/images/pattern-word-count.svg);
   width: 150px;
   height: 150px;
-  border-radius: 5px;
+  border-radius: 17px;
 }
 .card.orange::before {
   content: "";
   background-image: url(./assets/images/pattern-sentence-count.svg);
   width: 150px;
   height: 150px;
+  border-radius: 20px;
 }
 .card.yellow {
   background-color: #ff9f00;
@@ -222,7 +224,7 @@ input[type="checkbox"] {
 /* Media Queries */
 
 /* Mobile View */
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   header nav {
     display: flex;
     justify-content: space-between;
@@ -266,6 +268,11 @@ input[type="checkbox"] {
     width: 100%;
   }
 
+  .card {
+    flex: 1;
+    min-width: 0;
+  }
+
   .wrapper-checkbox p {
     text-align: left;
   }
@@ -276,7 +283,7 @@ input[type="checkbox"] {
 }
 
 /* Tablet view */
-@media (max-width: 768px) {
+@media (max-width: 1023px) and (min-width: 767px) {
   header nav {
     display: flex;
     justify-content: space-between;
