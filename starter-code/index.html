@@ -1,35 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Character counter</title>
-</head>
-<body>
+    <title>Frontend Mentor | Character counter</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <img src="./assets/images/logo-dark-theme.svg" alt="logo" />
+        <img src="./assets/images/icon-sun.svg" alt="theme-toggle" />
+      </nav>
+    </header>
 
-  Analyze your text in real-time.
+    <main class="container">
+      <h1 class="title-one">Analyze your text in real-time.</h1>
+      <h1 class="title-two">Analyze your text <br />in real-time.</h1>
 
-  Start typing here… (or paste your text)
+      <section class="textarea-box">
+        <textarea
+          placeholder="Start typing here… (or paste your text)"
+        ></textarea>
+      </section>
 
-  Exclude Spaces
-  Set Character Limit
+      <section class="wrapper-checkbox">
+        <section class="checkbox">
+          <label class="check-wrap" for="">
+            <input type="checkbox" name="" id="space" />
+            <label for="">Include Spaces</label>
+          </label>
+          <label class="check-wrap" for="">
+            <input type="checkbox" name="" id="Limit" />
+            <label for="">Set Character Limit</label>
+          </label>
+        </section>
+        <p>Approx. reading time: &lt; 1 minute</p>
+      </section>
 
-  Approx. reading time: <!-- Insert number --> minutes
+      <section class="wrapper-cards">
+        <article class="card purple">
+          <section>
+            <h2>278</h2>
+            <p>Total Characters</p>
+          </section>
+        </article>
+        <article class="card yellow">
+          <section>
+            <h2>39</h2>
+            <p>Word Count</p>
+          </section>
+        </article>
+        <article class="card orange">
+          <section>
+            <h2>04</h2>
+            <p>Sentence Count</p>
+          </section>
+        </article>
+      </section>
 
-  <!-- Insert number -->
-  Total Characters
-
-  <!-- Insert number -->
-  Word Count
-
-  <!-- Insert number -->
-  Sentence Count
-
-  Letter Density
-  No characters found. Start typing to see letter density.
-
-</body>
+      <section class="word-wrapper">
+        <h3>Letter Density</h3>
+        <article class="word-details">
+          <p class="letter">E</p>
+          <p class="progress-bar"></p>
+          <p class="percentage">40 (60%)</p>
+        </article>
+        <article class="word-details">
+          <p class="letter">E</p>
+          <p class="progress-bar"></p>
+          <p class="percentage">40 (60%)</p>
+        </article>
+        <article class="word-details">
+          <p class="letter">E</p>
+          <p class="progress-bar"></p>
+          <p class="percentage">40 (60%)</p>
+        </article>
+        <article class="word-details">
+          <p class="letter">E</p>
+          <p class="progress-bar"></p>
+          <p class="percentage">40 (60%)</p>
+        </article>
+        <article class="word-details">
+          <p class="letter">E</p>
+          <p class="progress-bar"></p>
+          <p class="percentage">40 (60%)</p>
+        </article>
+      </section>
+      <button class="btn">See More</button>
+    </main>
+  </body>
 </html>
