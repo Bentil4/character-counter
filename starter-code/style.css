@@ -204,6 +204,7 @@ input[type="checkbox"] {
   outline: none;
   background-color: transparent;
   align-self: flex-start;
+    display: none;
 }
 .hide-limit{
     display: none;
@@ -213,7 +214,6 @@ input[type="checkbox"] {
     width: 40px;
     height: 20px;
     border-radius: 2px;
-    /*background-color: transparent;*/
     border: 1px solid #e4e4ef;
 }
 

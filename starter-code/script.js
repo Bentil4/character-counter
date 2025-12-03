@@ -17,8 +17,15 @@ function getElement(selectorName, type) {
     }
 }
 
+let btn = document.querySelector(".btn");
+
 textareaContent.addEventListener('input', ()=> {
     let inputValue = textareaContent.value;
+if (inputValue.length === 0) {
+    btn.style.display = "none";
+}else{
+    btn.style.display = "block";
+}
 
     let limitNumber = parseInt(setCharacterLimit.value);
 
@@ -76,16 +83,15 @@ function eachLetterLength(text){
     let string = [...text];
     let container = []
 
-    // let wordWrapper = getElement('word-wrapper', 'class');
+
     let wordWrapper = document.querySelector('.word-wrapper');
 
     wordWrapper.innerHTML = "";
 
-
     for (let stringElement of string) {
-
         container[stringElement] = (container[stringElement] || 0)  + 1;
     }
+
     let totalCharacters = string.length
 
     for (let  key in container ){
@@ -94,9 +100,8 @@ function eachLetterLength(text){
         let percentageValue = ((count / totalCharacters) * 100).toFixed(2);
 
         let wordDetails = document.createElement("article")
-        wordDetails.setAttribute("class", "word-details");
+        wordDetails.setAttribute("class", "word-details letter-row");
         wordWrapper.appendChild(wordDetails);
-
         let letter = document.createElement('p')
         let progressBar = document.createElement('div')
         progressBar.setAttribute('class', 'progress-bar');
@@ -104,14 +109,46 @@ function eachLetterLength(text){
 
         let percentage = document.createElement("p")
 
-        console.log("Character " + " " + characterValue +" -- "+ container[key] + percentageValue);
-
-
         letter.innerHTML = characterValue
         percentage.innerHTML = `${container[key]} (${percentageValue}%)`;
         wordDetails.append(letter,progressBar, percentage);
     }
+
+    updateShowMore()
 }
+
+
+
+btn.addEventListener("click",()=> {
+
+    let letterRow = document.querySelectorAll('.letter-row');
+  if(btn.textContent === "See More"){
+      letterRow.forEach(letter => letter.style.display = "flex");
+      btn.textContent = "See Less";
+  }else{
+      letterRow.forEach((letter, index)=>{
+          letter.style.display = index < 5 ? "flex" : "none";
+      })
+      btn.textContent = "See More";
+  }
+
+})
+
+
+function updateShowMore(){
+    let letterRow = document.querySelectorAll('.letter-row');
+    if(letterRow.length > 5){
+        letterRow.forEach((letter, index)=>{
+            letter.style.display = index < 5 ? "flex" : "none";
+
+        })
+        btn.style.display = "block"
+        btn.textContent = "See More";
+    }else{
+        btn.style.display = "none";
+    }
+}
+
 
 
 
