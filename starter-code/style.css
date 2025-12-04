@@ -219,6 +219,51 @@ input[type="checkbox"] {
 
 
 
+/* Popup Overlay */
+.limit-popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.2s ease-in-out;
+    z-index: 2000;
+}
+
+.limit-popup-box {
+    background: #1a1a21;
+    padding: 20px 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: #e4e4ef;
+    width: 300px;
+    animation: scaleIn 0.25s ease;
+}
+
+.limit-popup-box button {
+    margin-top: 15px;
+    padding: 8px 18px;
+    background: #d3a0fa;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+
+
+
 /* Media Queries */
 
 /* Mobile View */

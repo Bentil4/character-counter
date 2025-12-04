@@ -5,6 +5,8 @@ let textareaContent = document.querySelector(".textarea");
 let limit = document.querySelector("#limit");
 let characterLimitDisplay = document.querySelector(".hide-limit");
 let setCharacterLimit = document.querySelector("#set-limit");
+let popup = document.getElementById("limit-popup");
+let closePopupBtn = document.getElementById("close-popup");
 
 function getElement(selectorName, type) {
     switch (type) {
@@ -32,6 +34,8 @@ if (inputValue.length === 0) {
     if (limit.checked && limitNumber && inputValue.length > limitNumber) {
         textareaContent.value = inputValue.substring(0, limitNumber);
         inputValue = textareaContent.value;
+
+        popup.style.display = "flex";
     }
 
     
@@ -150,6 +154,9 @@ function updateShowMore(){
 }
 
 
+closePopupBtn.addEventListener("click", () => {
+    popup.style.display = "none";
+});
 
 
 
