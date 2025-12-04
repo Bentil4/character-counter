@@ -15,15 +15,15 @@
   </head>
   <body>
     <header>
-      <nav>
+      <span>
         <img src="./assets/images/logo-dark-theme.svg" alt="logo" />
-        <img src="./assets/images/icon-sun.svg" alt="theme-toggle" />
-      </nav>
+        <img class="theme" src="./assets/images/icon-sun.svg" alt="theme-toggle" />
+      </span>
     </header>
 
     <main class="container">
-      <h1 class="title-one">Analyze your text in real-time.</h1>
-      <h1 class="title-two">Analyze your text <br />in real-time.</h1>
+      <h1 class="title">Analyze your text <span>in real-time.</span> </h1>
+
 
       <section class="textarea-box">
         <textarea
@@ -33,14 +33,14 @@
 
       <section class="wrapper-checkbox">
         <section class="checkbox">
-          <label class="check-wrap" for="">
+          <span class="check-wrap" >
             <input type="checkbox" name="" id="space" />
-            <label for="">Include Spaces</label>
-          </label>
-          <label class="check-wrap" for="">
+            <label for="space">Include Spaces</label>
+          </span>
+          <span class="check-wrap">
             <input type="checkbox" name="" id="Limit" />
-            <label for="">Set Character Limit</label>
-          </label>
+            <label for="Limit">Set Character Limit</label>
+          </span>
         </section>
         <p>Approx. reading time: &lt; 1 minute</p>
       </section>
@@ -93,8 +93,9 @@
           <p class="progress-bar"></p>
           <p class="percentage">21 (8.43%)</p>
         </article>
+          <button class="btn">See More</button>
+
       </section>
-      <button class="btn">See More</button>
     </main>
   </body>
 </html>
