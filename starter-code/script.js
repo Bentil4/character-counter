@@ -8,7 +8,7 @@ let setCharacterLimit = document.querySelector("#set-limit");
 let popup = document.getElementById("limit-popup");
 let closePopupBtn = document.getElementById("close-popup");
 let wordWrapper = document.querySelector(".word-wrapper");
-let wordsLimit = document.querySelector('#set-limit')
+let wordsLimit = document.querySelector("#set-limit");
 
 wordWrapper.innerHTML = "<h3>Letter Density</h3>";
 function getElement(selectorName, type) {
@@ -39,7 +39,7 @@ textareaContent.addEventListener("input", () => {
     inputValue = textareaContent.value;
 
     popup.style.display = "flex";
-   }
+  }
 
   wordCounter(inputValue);
   characterCounter(inputValue);
@@ -87,7 +87,7 @@ function eachLetterLength(text) {
   let container = [];
 
   let wordWrapper = document.querySelector(".word-wrapper");
-    wordWrapper.innerHTML = "<h3>Letter Density</h3>";
+  wordWrapper.innerHTML = "<h3>Letter Density</h3>";
   if (text.length === 0) {
     showEmptyMessage();
     return;
@@ -167,26 +167,54 @@ function showEmptyMessage() {
 
 showEmptyMessage();
 
-
-let warning = document.querySelector('.max')
-let textArea = document.querySelector('.textarea')
+let warning = document.querySelector(".max");
+let textArea = document.querySelector(".textarea");
 let setLimit = 3;
 
 textArea.addEventListener("input", (e) => {
+  const text = textArea.value;
+  let userLimit = Number(wordsLimit.value);
 
+  if (userLimit <= 0) {
+    warning.style.display = "none";
+    return;
+  }
 
-    const text = textArea.value
-    let userLimit = Number(wordsLimit.value)
+  if (text.length >= setLimit) {
+    warning.textContent = `Limit reached! Your text exceeds ${userLimit} characters.`;
+    warning.style.display = "block";
+  } else {
+    warning.style.display = "none";
+  }
+});
 
-    if(userLimit <= 0 ){
-        warning.style.display = "none";
-        return;
-    }
+// Toggle Themes
+let theme = document.querySelector(".theme");
+let logo = document.querySelector(".logo");
+let body = document.body;
+let savedTheme = localStorage.getItem("theme");
 
-    if(text.length >= setLimit ) {
-        warning.textContent = `Limit reached! Your text exceeds ${userLimit} characters.`
-        warning.style.display = "block";
-    }else{
-        warning.style.display = "none";
-    }
-})
+if (savedTheme === "light") {
+  body.classList.add("light-theme");
+  theme.src = "./assets/images/icon-moon.svg";
+  logo.src = "./assets/images/logo-dark-theme.svg";
+} else {
+  body.classList.add("dark-theme");
+  theme.src = "./assets/images/icon-sun.svg";
+  logo.src = "./assets/images/logo-light-theme.svg";
+}
+
+theme.addEventListener("click", () => {
+  body.classList.toggle("light-theme");
+  body.classList.toggle("dark-theme");
+
+  if (body.classList.contains("dark-theme")) {
+    localStorage.setItem("theme", "dark");
+    theme.src = "./assets/images/icon-sun.svg";
+    logo.src = "./assets/images/logo-dark-theme.svg";
+  } else {
+    localStorage.setItem("theme", "light");
+    theme.src = "./assets/images/icon-moon.svg";
+    logo.src = "./assets/images/logo-light-theme.svg";
+  }
+});
