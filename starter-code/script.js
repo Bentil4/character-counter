@@ -9,6 +9,8 @@ let popup = document.getElementById("limit-popup");
 let closePopupBtn = document.getElementById("close-popup");
 let wordWrapper = document.querySelector(".word-wrapper");
 let wordsLimit = document.querySelector("#set-limit");
+let textAreaBox = document.querySelector('.textarea-box')
+
 
 wordWrapper.innerHTML = "<h3>Letter Density</h3>";
 function getElement(selectorName, type) {
@@ -169,7 +171,7 @@ showEmptyMessage();
 
 let warning = document.querySelector(".max");
 let textArea = document.querySelector(".textarea");
-let setLimit = 3;
+
 
 textArea.addEventListener("input", (e) => {
   const text = textArea.value;
@@ -180,11 +182,13 @@ textArea.addEventListener("input", (e) => {
     return;
   }
 
-  if (text.length >= setLimit) {
+  if (text.length >= userLimit) {
     warning.textContent = `Limit reached! Your text exceeds ${userLimit} characters.`;
     warning.style.display = "block";
+    textAreaBox.classList.add("limit-exceeded");
   } else {
     warning.style.display = "none";
+    textAreaBox.classList.remove("limit-exceeded");
   }
 });
 
