@@ -2,15 +2,14 @@ let characterCount = document.querySelector(".character-count");
 let wordCount = document.querySelector(".word-count");
 let sentenceCount = document.querySelector(".sentence-count");
 let textareaContent = document.querySelector(".textarea");
-let limit = document.querySelector("#limit");
+let limitCheckbox = document.querySelector("#limit");
 let characterLimitDisplay = document.querySelector(".hide-limit");
 let setCharacterLimit = document.querySelector("#set-limit");
 let popup = document.getElementById("limit-popup");
 let closePopupBtn = document.getElementById("close-popup");
 let wordWrapper = document.querySelector(".word-wrapper");
 let wordsLimit = document.querySelector("#set-limit");
-let textAreaBox = document.querySelector('.textarea-box')
-
+let textAreaBox = document.querySelector(".textarea-box");
 
 wordWrapper.innerHTML = "<h3>Letter Density</h3>";
 function getElement(selectorName, type) {
@@ -36,7 +35,7 @@ textareaContent.addEventListener("input", () => {
 
   let limitNumber = parseInt(setCharacterLimit.value);
 
-  if (limit.checked && limitNumber && inputValue.length > limitNumber) {
+  if (limitCheckbox.checked && limitNumber && inputValue.length > limitNumber) {
     textareaContent.value = inputValue.substring(0, limitNumber);
     inputValue = textareaContent.value;
 
@@ -79,7 +78,7 @@ function sentenceCounter(text) {
 }
 
 // Set character limit
-limit.addEventListener("click", () => {
+limitCheckbox.addEventListener("click", () => {
   characterLimitDisplay.classList.toggle("hide-limit");
   characterLimitDisplay.classList.toggle("show-limit");
 });
@@ -172,7 +171,6 @@ showEmptyMessage();
 let warning = document.querySelector(".max");
 let textArea = document.querySelector(".textarea");
 
-
 textArea.addEventListener("input", (e) => {
   const text = textArea.value;
   let userLimit = Number(wordsLimit.value);
@@ -206,19 +204,19 @@ if (savedTheme === "light") {
   body.classList.add("dark-theme");
   theme.src = "./assets/images/icon-sun.svg";
   logo.src = "./assets/images/logo-light-theme.svg";
+
+  theme.addEventListener("click", () => {
+    body.classList.toggle("light-theme");
+    body.classList.toggle("dark-theme");
+
+    if (body.classList.contains("dark-theme")) {
+      localStorage.setItem("theme", "dark");
+      theme.src = "./assets/images/icon-sun.svg";
+      logo.src = "./assets/images/logo-dark-theme.svg";
+    } else {
+      localStorage.setItem("theme", "light");
+      theme.src = "./assets/images/icon-moon.svg";
+      logo.src = "./assets/images/logo-light-theme.svg";
+    }
+  });
 }
-
-theme.addEventListener("click", () => {
-  body.classList.toggle("light-theme");
-  body.classList.toggle("dark-theme");
-
-  if (body.classList.contains("dark-theme")) {
-    localStorage.setItem("theme", "dark");
-    theme.src = "./assets/images/icon-sun.svg";
-    logo.src = "./assets/images/logo-dark-theme.svg";
-  } else {
-    localStorage.setItem("theme", "light");
-    theme.src = "./assets/images/icon-moon.svg";
-    logo.src = "./assets/images/logo-light-theme.svg";
-  }
-});
