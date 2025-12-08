@@ -18,6 +18,8 @@ export let btn = document.querySelector(".btn");
 
 export let warning = document.querySelector(".max");
 
+export let readingTime = document.querySelector(".wrapper-checkbox p");
+
 export let theme = document.querySelector(".theme");
 export let logo = document.querySelector(".logo");
 export let body = document.body;

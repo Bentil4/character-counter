@@ -1,4 +1,9 @@
-import { characterCount, wordCount, sentenceCount } from "./dom.js";
+import {
+  characterCount,
+  wordCount,
+  sentenceCount,
+  readingTime,
+} from "./dom.js";
 
 export function getElement(selectorName, type) {
   switch (type) {
@@ -31,4 +36,15 @@ export function wordCounter(text) {
 export function sentenceCounter(text) {
   let sentences = text.split(/[.!?]+/).filter((space) => space.trim() !== "");
   sentenceCount.textContent = sentences.length;
+}
+
+export function readingTimeCounter(wordCount) {
+  if (wordCount === 0) {
+    readingTime.textContent = "Approx. reading time: < 1 minute";
+  } else {
+    let minutes = Math.ceil(wordCount / 200);
+    readingTime.textContent = `Approx. reading time: ${minutes} minute${
+      minutes > 1 ? "s" : ""
+    }`;
+  }
 }

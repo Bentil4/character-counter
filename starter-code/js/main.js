@@ -1,12 +1,24 @@
-import { textareaContent, btn, limitCheckbox } from "./dom.js";
-import { characterCounter, wordCounter, sentenceCounter } from "./counters.js";
+import {
+  textareaContent,
+  btn,
+  limitCheckbox,
+  wordCount,
+  characterCount,
+  sentenceCount,
+} from "./dom.js";
+import {
+  characterCounter,
+  wordCounter,
+  sentenceCounter,
+  readingTimeCounter,
+} from "./counters.js";
 import { eachLetterLength } from "./letterDensity.js";
 import { handleCharacterLimit, toggleLimitUI, showWarning } from "./limit.js";
 import "./theme.js";
 
-characterCounter.textContent = "00";
-wordCounter.textContent = "00";
-sentenceCounter.textContent = "00";
+characterCount.textContent = "00";
+wordCount.textContent = "00";
+sentenceCount.textContent = "00";
 
 textareaContent.addEventListener("input", () => {
   let inputValue = textareaContent.value;
@@ -18,6 +30,7 @@ textareaContent.addEventListener("input", () => {
   wordCounter(inputValue);
   characterCounter(inputValue);
   sentenceCounter(inputValue);
+  readingTimeCounter(parseInt(wordCount.textContent));
   eachLetterLength(inputValue);
 
   showWarning(textareaContent);
