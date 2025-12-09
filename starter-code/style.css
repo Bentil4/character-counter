@@ -10,8 +10,10 @@
   --text: #12131a;
   --light-text: #e4e4ef;
   --text-area-color: var(--neutral);
+  --text-area-bg: var(--neutral-mid);
   --border-color: var(--orange);
   --input-color: var(--neutral-light);
+  --progress-bar-color: #21222c;
 }
 
 * {
@@ -36,6 +38,8 @@ body.light-theme {
   --neutral-mid: var(--neutral);
   --text-area-color: var(--neutral-black);
   --input-color: var(--neutral-black);
+  --progress-bar-color: #f2f2f7;
+  --text-area-bg: var(--neutral);
 }
 
 header span {
@@ -93,7 +97,8 @@ main h1 {
 .textarea-box textarea {
   width: 100%;
   height: 100%;
-  background: transparent;
+  border-radius: 10px;
+  background: var(--text-area-bg);
   border: none;
   outline: none;
   color: var(--text-area-color);
@@ -162,6 +167,7 @@ textarea::placeholder {
   display: flex;
   flex-direction: row;
   align-items: center;
+    justify-content: center;
   gap: 10px;
 }
 .card {
@@ -235,7 +241,13 @@ input[type="checkbox"]:checked {
 }
 
 input[type="checkbox"]:checked::after {
-  content: url("./assets/images/icon-check.svg") "";
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./assets/images/icon-check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px 15px;
 }
 
 .word-wrapper {
@@ -252,7 +264,7 @@ input[type="checkbox"]:checked::after {
 .word-details {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   gap: 10px;
   flex: 1;
   padding-top: 1em;
@@ -262,7 +274,7 @@ input[type="checkbox"]:checked::after {
   width: 100%;
   height: 10px;
   border-radius: 5px;
-  background-color: #21222c;
+  background-color: var(--progress-bar-color);
   --fill-width: 0%;
 }
 
@@ -302,9 +314,10 @@ input[type="number"] {
 
 .show-limit {
   width: 40px;
-  height: 20px;
+  height: 30px;
   border-radius: 2px;
   border: 1px solid var(--neutral);
+  text-align: center;
 }
 
 /* Popup Overlay */
@@ -362,7 +375,7 @@ input[type="number"] {
 /* Media Queries */
 
 /* Mobile View */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   header span {
     display: flex;
     justify-content: space-between;
@@ -385,7 +398,7 @@ input[type="number"] {
   }
 
   .checkbox {
-    flex-direction: column;
+      flex-direction: column;
     align-items: flex-start;
   }
 
@@ -478,11 +491,7 @@ input[type="number"] {
   }
 }
 
-@media (min-width: 1440px) {
-  .title {
-    width: 90%;
-  }
-}
+
 
 .textarea::-webkit-scrollbar {
   display: none;
