@@ -3,21 +3,10 @@ import {
   wordCount,
   sentenceCount,
   readingTime,
+  addSpaces,
 } from "./dom.js";
 
-export function getElement(selectorName, type) {
-  switch (type) {
-    case "id":
-      return document.getElementById(selectorName);
-    case "class":
-      return document.getElementsByClassName(selectorName);
-    case "tag":
-      return document.getElementsByTagName(selectorName);
-  }
-}
-
 export function characterCounter(text) {
-  let addSpaces = getElement("space", "id");
   let count = addSpaces.checked ? text.length : text.replace(/\s+/g, "").length;
   characterCount.textContent = count.toString().padStart(2, "0");
 }

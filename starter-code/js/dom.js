@@ -23,3 +23,4 @@ export let readingTime = document.querySelector(".wrapper-checkbox p");
 export let theme = document.querySelector(".theme");
 export let logo = document.querySelector(".logo");
 export let body = document.body;
+export let addSpaces = document.getElementById("space");
