@@ -1,7 +1,5 @@
 import { wordWrapper, btn } from "./dom.js";
 
-wordWrapper.innerHTML = "<h3>Letter Density</h3>";
-
 export function eachLetterLength(text) {
   let string = [...text];
   let container = [];
@@ -11,14 +9,17 @@ export function eachLetterLength(text) {
     return;
   }
 
+  wordWrapper.innerHTML = "<h3>Letter Density</h3>";
+
   for (let stringElement of string) {
-    container[stringElement] = (container[stringElement] || 0) + 1;
+    let lowerChar = stringElement.toLowerCase();
+    container[lowerChar] = (container[lowerChar] || 0) + 1;
   }
 
   let totalCharacters = string.length;
 
   for (let key in container) {
-    let characterValue = key.valueOf().toLocaleUpperCase();
+    let characterValue = key.toUpperCase();
     let count = container[key];
     let percentageValue = ((count / totalCharacters) * 100).toFixed(2);
 
@@ -54,11 +55,6 @@ export function updateShowMore() {
 }
 
 export function showEmptyMessage() {
-  let message = document.createElement("p");
-  message.style.textAlign = "left";
-  message.textContent =
-    "No characters found. Start typing to see letter density.";
-
-  wordWrapper.appendChild(message);
+  wordWrapper.innerHTML = `<h3>Letter Density</h3><p style="text-align: left;">No characters found. Start typing to see letter density.</p>`;
   btn.style.display = "none";
 }
