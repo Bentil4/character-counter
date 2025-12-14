@@ -18,11 +18,8 @@ export function getElement(selectorName, type) {
 
 export function characterCounter(text) {
   let addSpaces = getElement("space", "id");
-  if (addSpaces.checked) {
-    characterCount.textContent = text.length;
-  } else {
-    characterCount.textContent = text.replace(/\s+/g, "").length;
-  }
+  let count = addSpaces.checked ? text.length : text.replace(/\s+/g, "").length;
+  characterCount.textContent = count.toString().padStart(2, "0");
 }
 
 export function wordCounter(text) {
@@ -30,12 +27,12 @@ export function wordCounter(text) {
     .trim()
     .split(/\s+/)
     .filter((word) => word !== "");
-  wordCount.textContent = words.length;
+  wordCount.textContent = words.length.toString().padStart(2, "0");
 }
 
 export function sentenceCounter(text) {
   let sentences = text.split(/[.!?]+/).filter((space) => space.trim() !== "");
-  sentenceCount.textContent = sentences.length;
+  sentenceCount.textContent = sentences.length.toString().padStart(2, "0");
 }
 
 export function readingTimeCounter(wordCount) {
