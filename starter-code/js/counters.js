@@ -7,7 +7,10 @@ import {
 } from "./dom.js";
 
 export function characterCounter(text) {
-  let count = addSpaces.checked ? text.length : text.replace(/\s+/g, "").length;
+  let excludeSpaces = addSpaces;
+  let count = excludeSpaces.checked
+    ? text.replace(/\s+/g, "").length
+    : text.length;
   characterCount.textContent = count.toString().padStart(2, "0");
 }
 

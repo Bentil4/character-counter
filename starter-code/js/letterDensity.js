@@ -1,10 +1,11 @@
-import { wordWrapper, btn } from "./dom.js";
+import { wordWrapper, btn, addSpaces } from "./dom.js";
 
 export function eachLetterLength(text) {
-  let string = [...text];
+  let filteredText = addSpaces.checked ? text.replace(/\s+/g, "") : text;
+  let string = [...filteredText];
   let container = [];
 
-  if (text.length === 0) {
+  if (filteredText.length === 0) {
     showEmptyMessage();
     return;
   }
@@ -16,7 +17,7 @@ export function eachLetterLength(text) {
     container[lowerChar] = (container[lowerChar] || 0) + 1;
   }
 
-  let totalCharacters = string.length;
+  let totalCharacters = filteredText.length;
 
   for (let key in container) {
     let characterValue = key.toUpperCase();
