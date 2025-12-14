@@ -5,6 +5,7 @@ import {
   wordCount,
   characterCount,
   sentenceCount,
+  setCharacterLimit,
 } from "./dom.js";
 import {
   characterCounter,
@@ -19,6 +20,8 @@ import "./theme.js";
 characterCount.textContent = "00";
 wordCount.textContent = "00";
 sentenceCount.textContent = "00";
+
+setCharacterLimit.value = 300;
 
 textareaContent.addEventListener("input", () => {
   let inputValue = textareaContent.value;
@@ -50,3 +53,5 @@ btn.addEventListener("click", () => {
     btn.textContent = "See More";
   }
 });
+
+eachLetterLength(textareaContent.value);
